@@ -16,7 +16,7 @@ System of Records for all the LCCE Applications built on salesforce platform
 
 > Estimated Time for New Joiners ~ 4 Hours
 
-1. Add SSH key to your [GitHub Profile](https://www-github.cisco.com/settings/keys)
+1. Add SSH key to your [GitHub Profile](https://github.com/settings/keys)
 
     - Follow the Steps as in [GitHub Docs: ](https://docs.github.com/en/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account)
 
@@ -44,17 +44,14 @@ System of Records for all the LCCE Applications built on salesforce platform
 
 ## Getting Started
 
-1.  Connect to Cisco VPN
 
 1.  Clone repository
 
     ```
-    git clone git@www-github.cisco.com:LC-SecurityDPP/application-profiler.git
-    cd application-profiler
+    git clone https://github.com/rajasoun/ci-container.git
+    cd ci-container
     code .
     ```
-
-1.  Disconnect from Cisco VPN
 
 1.  Click the Green Button as shown in the image below and select
     Open Folder in Container... command and select the local folder.
@@ -76,11 +73,6 @@ System of Records for all the LCCE Applications built on salesforce platform
     $ gsetup
     ```
 
-1. Run `automator/cci-deploy.sh` for deploying code in a newly created scratch org
-1. Run `cci task run robot -o suites robot/tests/ui/example/create_contact.robot -o vars BROWSER:headlesschrome --org <orgName>` to do a quick test
-1. Run `cci task run robot --include Smoke -o vars BROWSER:headlesschrome --org <orgName>`for Test Automation
-1. Run `pabot --processes 5 --outputdir robot/results robot/tests/api/app_threat_index` to test app threat index formulas
-
 ## Development Rythm
 
 1. Create Feature Branch
@@ -89,12 +81,6 @@ System of Records for all the LCCE Applications built on salesforce platform
     $ git flow feature start <description_MICROSVCS-jira_id>
     ```
 
-1. Customize & Configure app in salesforce UI
-
-1. Review Changes using `cci task run list_changes` and use `cci task run list_changes --exclude "<pattern>"` to ignore chnages
-
-1. Pull Changes `cci task run retrieve_changes` and use `cci task run retrieve_changes --exclude "<pattern>"` to ignore chnages
-
 1. Run `gaa` for git add
 
 1. Run `gc` for git commit
@@ -102,22 +88,6 @@ System of Records for all the LCCE Applications built on salesforce platform
 1. Once you completed developing the feature
     ```
     $ git flow feature finish <short_name_MICROSVCS-jira_id>
-    ```
-
-## Managing Users and Permissions
-
-1. Assign Permission set based on the role to be tested from any of the following roles [ToDo:Review]
-
-    - Dev_Admin - Salesforce Administration Activities
-    - Application_Admin - User Management Activities
-    - DashBoard_Executive - Super Admininistrator of Security Risk Profiler Dashboard + Executive Dashboard
-    - Dashboard_Admin - Super Admininistrator of Security Risk Profiler Dashboard
-    - Security_Advocate - Approvals, View Previlages across Organization
-    - Dashboard_User - View Previlage
-
-    ```
-    api_name = < DashBoard_Executive | Dashboard_Admin | Security_Advocate | Dashboard_User >
-    cci task run assign_permission_sets --api_names $api_name
     ```
 
 ## Automate Release
@@ -131,11 +101,7 @@ Following steps to be executed to do an automate release.
     git checkout main #Checkout main branch
     git pull --rebase #Get the Latest Code
     ```
-1. Deploy and Run Automated Tests. All has to Pass for the deployment to Happen
-    ```
-    automator/cci-deploy
-    ```
-1. Check Deployment is < 3.3 mins and test < 1 min
+
 1. Run Automated Release
     ```
     release
@@ -144,4 +110,4 @@ Following steps to be executed to do an automate release.
 ## Refernces
 
 1. [Shift Left Security Tooling Guide](SLS.md)
-1. [sfdx Autocomplete setup]() #ToDo
+

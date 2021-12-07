@@ -160,9 +160,9 @@ function git_hub_login(){
 	AUTH_TYPE=$1
 	case "$AUTH_TYPE" in
 		web)
-			gh auth login --hostname www-github.cisco.com --web
+			gh auth login --hostname github.com --web
 			EXIT_CODE="$?"
-			log_sentry "$EXIT_CODE" "Cisco Github Login via Web"
+			log_sentry "$EXIT_CODE" "Github Login via Web"
 			;;
 		token)
 			GT="$(dotenv get GITHUB_TOKEN)"
@@ -170,11 +170,11 @@ function git_hub_login(){
 			if [ ! -f "token.txt" ]; then
 				echo "$GT" > automator/token.txt
 			fi
-			gh auth login --hostname  www-github.cisco.com --with-token < automator/token.txt
+			gh auth login --hostname  github.com --with-token < automator/token.txt
 			EXIT_CODE="$?"
-			log_sentry "$EXIT_CODE" "Cisco Github Login via Token"
+			log_sentry "$EXIT_CODE" "Github Login via Token"
 			;;
-		*) gh auth login --hostname www-github.cisco.com --web;;
+		*) gh auth login --hostname github.com --web;;
 	esac
 }
 
@@ -210,14 +210,14 @@ alias gclean="git fetch --prune origin && git fetch --prune --tags && git gc"
 #shellcheck disable=SC2139
 #shellcheck disable=SC2145
 alias glogin="git_hub_login $@"
-alias gstatus="gh auth status --hostname www-github.cisco.com"
+alias gstatus="gh auth status --hostname github.com"
 alias release="release_it"
 
 #-------------------------------------------------------------
 # Generic Alias Commands
 #-------------------------------------------------------------
 alias pretty="npx prettier --config shift-left-security/.prettierrc.yml --write ."
-alias git-ssh-check='ssh -T git@www-github.cisco.com'
+alias git-ssh-check='ssh -T git@github.com'
 alias init-debug='init_debug'
 
 git-ssh-fix

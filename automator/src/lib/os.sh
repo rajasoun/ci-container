@@ -220,7 +220,7 @@ function _git_config() {
   if [ -n "$USER_NAME" ]; then
     echo "Configuring Git"
     git config --global user.name "${USER_NAME}"
-    git config --global user.email "${USER_NAME}@cisco.com"
+    git config --global user.email "${USER_NAME}"
     git config --global core.editor "code"
   fi
   # debug "$(cat "$GIT_CONFIG_FILE")"
@@ -259,7 +259,7 @@ function _print_details() {
 
   echo "GoTo:"
   echo ""
-  echo "https://www-github.cisco.com/settings/ssh/new"
+  echo "https://github.com/settings/ssh/new"
   echo ""
 }
 
@@ -273,7 +273,7 @@ function _configure_ssh() {
   echo "Copying SSH Public Key to Clipboard"
   _copy_to_clipboard "$PUBLIC_KEY"
   _print_details
-  _check_connection "www-github.cisco.com" || _prompt_vpn_connection
+  _check_connection "github.com" || _prompt_vpn_connection
   _prompt_confirm "Is SSH Public Added to Cisco GitHub"
 }
 
