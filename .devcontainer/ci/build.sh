@@ -30,7 +30,7 @@ case ${choice} in
     cd .devcontainer/prebuild && make push && cd - || return
     # git tag -a "$VERSION" -m "Dev Container new Build $VERSION"
     # git push origin "$VERSION" --no-verify
-    echo "FROM rajasoun/devcontainer:$VERSION" >.devcontainer/prebuild/Dockerfile.prebuilt
+    echo "FROM rajasoun/ci-container:$VERSION" >.devcontainer/prebuild/Dockerfile.prebuilt
     ;;
 "build")
     build_container

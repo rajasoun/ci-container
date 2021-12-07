@@ -39,4 +39,4 @@ _docker run --rm -it --name nix-shell \
         --mount type=volume,src=vscode,dst=/vscode -l vsch.local.folder="${PWD}" \
         -l vsch.quality=stable -l vsch.remote.devPort=0 \
         -w "/workspaces/ci-container" \
-        "rajasoun/devcontainer:$VERSION"
+        "rajasoun/ci-container:$VERSION"

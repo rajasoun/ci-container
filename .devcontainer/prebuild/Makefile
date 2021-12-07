@@ -1,5 +1,5 @@
 CONTEXT="."
-IMAGE_NAME=rajasoun/devcontainer:$(VERSION)
+IMAGE_NAME=rajasoun/ci-container:$(VERSION)
 
 $(eval VERSION=$(shell git describe --tags --abbrev=0 | awk -F. '{OFS="."; $$NF+=1; print $0}'))
 
