@@ -1,5 +1,5 @@
 {
-    "name": "application-profiler",
+    "name": "ci-container",
     "version": "0.0.1",
     "description": "System of Records for all the LCCE Applications built on salesforce platform",
     "author": "Raja. S",
@@ -14,25 +14,24 @@
         "release": "release-it"
     },
     "engines": {
-        "node": ">= 14.17.3",
-        "npm": ">= 7.19.1"
+        "node": ">= 16.13.1",
+        "npm": ">= 8.1.4"
     },
     "devDependencies": {
-        "@commitlint/cli": "^13.1.0",
-        "@commitlint/config-conventional": "^13.1.0",
-        "@prettier/plugin-xml": "^1.0.1",
+        "@commitlint/cli": "^15.0.0",
+        "@commitlint/config-conventional": "^15.0.0",
         "auto-changelog": "^2.3.0",
         "commitizen": "^4.2.4",
         "cz-conventional-changelog": "^3.3.0",
-        "eslint": "^7.32.0",
+        "eslint": "^8.4.1",
         "eslint-config-prettier": "^8.3.0",
-        "eslint-plugin-import": "^2.24.2",
+        "eslint-plugin-import": "^2.25.3",
         "eslint-plugin-prettier": "^4.0.0",
-        "husky": "^7.0.2",
-        "lint-staged": "^11.1.2",
+        "husky": "^7.0.4",
+        "lint-staged": "^12.1.2",
         "pinst": "^2.1.6",
-        "prettier": "2.4.0",
-        "release-it": "^14.11.5",
+        "prettier": "2.5.1",
+        "release-it": "^14.11.8",
         "semver": "^7.3.5"
     },
     "config": {

@@ -38,7 +38,7 @@ case ${choice} in
     sudo make build
     cd - || return
     debug "Removing Intermediate Container"
-    docker rmi "rajasoun/application-profiler:$VERSION"
+    docker rmi "rajasoun/ci-container:$VERSION"
     echo "$VERSION" >.devcontainer/version.txt
     ;;
 "teardown")
