@@ -10,7 +10,7 @@ ORANGE=$'\x1B[33m'
 
 GIT_CONFIG_FILE="$HOME/.gitconfig"
 KEYS_PATH="ssh-keys"
-PRIVATE_KEY="$KEYS_PATH/id_rsa_cisco_github"
+PRIVATE_KEY="$KEYS_PATH/id_rsa_github"
 PUBLIC_KEY="${PRIVATE_KEY}.pub"
 
 # Create Directory if the given directory does not exists
@@ -212,8 +212,8 @@ function _backup_remove_git_config() {
 function _git_config() {
   _backup_remove_git_config
   if [[ "$USER" == "vscode" ]]; then
-    echo "Executing Inside Dev Container. Getting Cisco User"
-    MSG="${GREEN} Cisco CEC User ${NC}${ORANGE}(without eMail) : ${NC}"
+    echo "Executing Inside Dev Container. Getting User"
+    MSG="${GREEN} User ${NC}${ORANGE}(without eMail) : ${NC}"
     # read -r -p "$MSG" USER_NAME
     read -r "USER_NAME?$MSG"
   fi
@@ -236,18 +236,18 @@ function _generate_ssh_keys() {
   echo "Generating SSH Keys for $USER_NAME"
   _is_command_found ssh-keygen
   debug "Generating SSH Keys for $USER_NAME"
-  ssh-keygen -q -t rsa -N '' -f "$PRIVATE_KEY" -C "$USER_NAME@cisco.com" <<<y 2>&1 >/dev/null
+  ssh-keygen -q -t rsa -N '' -f "$PRIVATE_KEY" -C "$USER_EMAIL" <<<y 2>&1 >/dev/null
 
   echo "Set File Permissions"
   # Fix Permission For Private Key
   chmod 400 "$PUBLIC_KEY"
   chmod 400 "$PRIVATE_KEY"
   debug "SSH Keys Generated Successfully"
-  debug "SSH Key Scan for Cisco GitHub Successfull"
+  debug "SSH Key Scan for GitHub Successfull"
 }
 
 function _prompt_vpn_connection() {
-  echo -e "${GREEN}Connect to Cisco VPN... ${NC}\n"
+  echo -e "${GREEN}Connect to VPN... ${NC}\n"
   prompt_confirm "Is VPN Connected"
 }
 
@@ -273,7 +273,7 @@ function _configure_ssh() {
   echo "Copying SSH Public Key to Clipboard"
   _copy_to_clipboard "$PUBLIC_KEY"
   _print_details
-  _check_connection "github.com" || _prompt_vpn_connection
+  _check_connection "www-in.cisco.com.com" || _prompt_vpn_connection
   _prompt_confirm "Is SSH Public Added to Cisco GitHub"
 }
 
@@ -288,7 +288,8 @@ function git-ssh-fix() {
   echo "${BOLD}Git SSH Hack Fix${NC}"
   # check if ssh key is already added
   ssh-add -l >/dev/null || echo "SSH Key "
-  if [ "$(ssh-add -l | grep -c "@cisco.com")" = 0 ]; then
+  DOMAIN=$(echo "$USER_EMAIL" | cut -d @ -f2)
+  if [ "$(ssh-add -l | grep -c "@$DOMAIN")" = 0 ]; then
     echo "Adding SSH Key"
     eval "$(ssh-agent -s)" && ssh-add $PRIVATE_KEY
   else

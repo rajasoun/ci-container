@@ -23,7 +23,6 @@ System of Records for all the LCCE Applications built on salesforce platform
 1. Join [Shift Left Security](https://eurl.io/#L1zXw5q-Z) and request for
 
     - Git Guardian API Key
-    - Cisco Dev Hub Org username and password
 
 1. (Optional) Get your own [Salesforce Developer Hub](https://developer.salesforce.com/signup). Developer Hub (Dev Hub) is the main Salesforce org that you will use to create and manage the scratch orgs. Scratch org is a dedicated, configurable, and short-term Salesforce environment that you can quickly spin up when starting a new project, a new feature branch, or a feature test.
 

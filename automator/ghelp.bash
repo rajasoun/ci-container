@@ -42,7 +42,7 @@ echo "
 Extra Command For Quick Fix:
 - - - - - - - - - - - - - -
 cci-env-fix		- Set up CUMULUSCI_KEY environment variable
-git-ssh-check		- Check Cisco Git SSH Works
+git-ssh-check		- Check Git SSH Works
 git-ssh-fix		- Fix Git SSH Permission denied (publickey) Issue
 init-debug		- Initialize Debug for Open Source Sentry
 release			- Release through Automation
@@ -87,7 +87,7 @@ function _check_gg_api(){
 function _populate_dot_env() {
 	prompt "Populating .env File"
 	cp .env.sample .env
-	prompt "${BLUE}To Get the GG Key Join with Cisco eMail : https://eurl.io/#L1zXw5q-Z ${NC}"
+	prompt "${BLUE}To Get the GG Key Register https://dashboard.gitguardian.com/ ${NC}"
 	prompt "${BOLD}Enter Git Guardian API Key: ${NC}"
 	read -r GG_KEY
 	_file_replace_text "__________FILL_ME__________" "$GG_KEY" "$(git rev-parse --show-toplevel)/.env"
