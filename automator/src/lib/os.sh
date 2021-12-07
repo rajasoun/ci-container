@@ -343,7 +343,6 @@ function _run_main() {
   all_colors "$@"
   lls "$@"
   run_pre_commit "$@"
-  cci-env-fix "$@"
   git-ssh-fix "$@"
   init_sentry "$@"
 }
