@@ -41,7 +41,6 @@ echo "
 - - - - - - - - - - - - - -
 Extra Command For Quick Fix:
 - - - - - - - - - - - - - -
-cci-env-fix		- Set up CUMULUSCI_KEY environment variable
 git-ssh-check		- Check Git SSH Works
 git-ssh-fix		- Fix Git SSH Permission denied (publickey) Issue
 init-debug		- Initialize Debug for Open Source Sentry
