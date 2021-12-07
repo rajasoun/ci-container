@@ -1,0 +1,16 @@
+#!/usr/bin/env sh
+
+# shellcheck source=/dev/null
+. "$(dirname "$0")/_/husky.sh"
+. "$(dirname "$0")/common.sh"
+
+printf "\nPre Push Steps: (pre-push) : Test Suite"
+
+# load .env
+export "$(cat .env | xargs)"
+# printf "\n(pre-push) LWC - Threat Index : Unit Test"
+# npm run --prefix ./force-app/main/default/lwc/tdd test
+# printf "\n(pre-push) Security Risk Profiler Dashboard  : Full Deploy"
+# automator/cci-deploy.sh
+printf "\n(pre-push) Security Risk Profiler Dashboard  : API Test"
+robot/run.sh

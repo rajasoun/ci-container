@@ -1,0 +1,43 @@
+{
+    "name": "application-profiler",
+    "version": "0.0.1",
+    "description": "System of Records for all the LCCE Applications built on salesforce platform",
+    "author": "Raja. S",
+    "license": "ISC",
+    "private": true,
+    "scripts": {
+        "list-installed-npm-packages": "npm ls --depth=0.",
+        "list-outdated-npm-packages": "npm outdated --depth=0.",
+        "update-npm-packages": "npm update",
+        "lint-staged": "lint-staged",
+        "postinstall": "node bin/check-version.js && cd .. && husky install ",
+        "release": "release-it"
+    },
+    "engines": {
+        "node": ">= 14.17.3",
+        "npm": ">= 7.19.1"
+    },
+    "devDependencies": {
+        "@commitlint/cli": "^13.1.0",
+        "@commitlint/config-conventional": "^13.1.0",
+        "@prettier/plugin-xml": "^1.0.1",
+        "auto-changelog": "^2.3.0",
+        "commitizen": "^4.2.4",
+        "cz-conventional-changelog": "^3.3.0",
+        "eslint": "^7.32.0",
+        "eslint-config-prettier": "^8.3.0",
+        "eslint-plugin-import": "^2.24.2",
+        "eslint-plugin-prettier": "^4.0.0",
+        "husky": "^7.0.2",
+        "lint-staged": "^11.1.2",
+        "pinst": "^2.1.6",
+        "prettier": "2.4.0",
+        "release-it": "^14.11.5",
+        "semver": "^7.3.5"
+    },
+    "config": {
+        "commitizen": {
+            "path": "./shift-left-security/node_modules/cz-conventional-changelog"
+        }
+    }
+}

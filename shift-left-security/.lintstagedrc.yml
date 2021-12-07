@@ -1,0 +1,16 @@
+---
+'**/*.{cls,cmp,component,css,html,js,json,md,page,trigger,yaml,yml,xml}':
+    - npx prettier --write .
+
+'**/*.js,aura|lwc/**':
+    - npx eslint --no-eslintrc --cache --fix
+
+'**/*.py':
+    - black --verbose
+    - pylint
+
+'**/*.sh':
+    - shellcheck
+
+'**/*.robot':
+    - robotidy

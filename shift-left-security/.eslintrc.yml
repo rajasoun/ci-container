@@ -1,0 +1,22 @@
+---
+parserOptions:
+    ecmaVersion: 2017
+
+env:
+    es6: true
+
+rules:
+    quotes:
+        - error
+        - single
+    prettier/prettier: 2
+
+plugins:
+    - prettier
+    - '@salesforce/eslint-plugin-aura'
+
+extends:
+    - plugin:prettier/recommended
+    - prettier
+    - plugin:@salesforce/eslint-plugin-aura/recommended
+    - plugin:@salesforce/eslint-plugin-aura/locker
