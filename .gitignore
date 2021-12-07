@@ -543,3 +543,4 @@ robot/results
 
 automator/config/user.env
 token.txt
+!shift-left-security/bin
