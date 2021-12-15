@@ -179,8 +179,10 @@ function git_hub_login(){
 
 function release_dev_container(){
 	glogin token
-	sudo .devcontainer/ci/build.sh build
-	sudo .devcontainer/ci/build.sh publish
+	# sudo .devcontainer/ci/build.sh build
+	# sudo .devcontainer/ci/build.sh publish
+	.devcontainer/ci/build.sh build
+	.devcontainer/ci/build.sh publish
 }
 
 function release_it(){

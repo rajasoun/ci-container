@@ -25,6 +25,7 @@ function _get_devcontainer_json(){
 # Returns formatted devcontainer.json (0) or errors out  (1) otherwise.
 function _get_devcontainer_json_corrected(){
     json=$(_get_devcontainer_json | tail -n +2)
+    # json=$(cat .devcontainer/devcontainer.json)
     echo "$json"
 }
 
